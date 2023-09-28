@@ -1,0 +1,495 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3FFF80912AC40E8F00B554C4 /* SOSFranceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80902AC40E8F00B554C4 /* SOSFranceApp.swift */; };
+		3FFF80932AC40E8F00B554C4 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80922AC40E8F00B554C4 /* MainTabView.swift */; };
+		3FFF80952AC40E9000B554C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF80942AC40E9000B554C4 /* Assets.xcassets */; };
+		3FFF80982AC40E9000B554C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF80972AC40E9000B554C4 /* Preview Assets.xcassets */; };
+		3FFF809F2AC41F6400B554C4 /* NumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF809E2AC41F6400B554C4 /* NumView.swift */; };
+		3FFF80A12AC41F6D00B554C4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80A02AC41F6D00B554C4 /* MapView.swift */; };
+		3FFF80A42AC4204D00B554C4 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80A32AC4204D00B554C4 /* SplashView.swift */; };
+		3FFF80A62AC4205900B554C4 /* SplashViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80A52AC4205900B554C4 /* SplashViewModifier.swift */; };
+		3FFF80AD2AC426BB00B554C4 /* PhrasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80AC2AC426BB00B554C4 /* PhrasesView.swift */; };
+		3FFF80AF2AC43DD300B554C4 /* CallViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80AE2AC43DD300B554C4 /* CallViewModifier.swift */; };
+		3FFF80B12AC44AAF00B554C4 /* PhrasesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80B02AC44AAF00B554C4 /* PhrasesViewModel.swift */; };
+		3FFF80B32AC44DC300B554C4 /* HelpPhraseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80B22AC44DC300B554C4 /* HelpPhraseModel.swift */; };
+		3FFF80B82AC47A4C00B554C4 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80B72AC47A4C00B554C4 /* LocationViewModel.swift */; };
+		3FFF80BC2AC4865500B554C4 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80BB2AC4865500B554C4 /* LocationView.swift */; };
+		3FFF80BE2AC499D900B554C4 /* Num2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80BD2AC499D900B554C4 /* Num2View.swift */; };
+		3FFF80C52AC55A8A00B554C4 /* NumbersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80C42AC55A8A00B554C4 /* NumbersViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3FFF808D2AC40E8F00B554C4 /* SOSFrance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOSFrance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FFF80902AC40E8F00B554C4 /* SOSFranceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSFranceApp.swift; sourceTree = "<group>"; };
+		3FFF80922AC40E8F00B554C4 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		3FFF80942AC40E9000B554C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3FFF80972AC40E9000B554C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3FFF809E2AC41F6400B554C4 /* NumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumView.swift; sourceTree = "<group>"; };
+		3FFF80A02AC41F6D00B554C4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		3FFF80A32AC4204D00B554C4 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		3FFF80A52AC4205900B554C4 /* SplashViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModifier.swift; sourceTree = "<group>"; };
+		3FFF80AC2AC426BB00B554C4 /* PhrasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesView.swift; sourceTree = "<group>"; };
+		3FFF80AE2AC43DD300B554C4 /* CallViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewModifier.swift; sourceTree = "<group>"; };
+		3FFF80B02AC44AAF00B554C4 /* PhrasesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesViewModel.swift; sourceTree = "<group>"; };
+		3FFF80B22AC44DC300B554C4 /* HelpPhraseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPhraseModel.swift; sourceTree = "<group>"; };
+		3FFF80B72AC47A4C00B554C4 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		3FFF80BB2AC4865500B554C4 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		3FFF80BD2AC499D900B554C4 /* Num2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Num2View.swift; sourceTree = "<group>"; };
+		3FFF80C42AC55A8A00B554C4 /* NumbersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FFF808A2AC40E8F00B554C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FFF80842AC40E8F00B554C4 = {
+			isa = PBXGroup;
+			children = (
+				3FFF808F2AC40E8F00B554C4 /* SOSFrance */,
+				3FFF808E2AC40E8F00B554C4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3FFF808E2AC40E8F00B554C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF808D2AC40E8F00B554C4 /* SOSFrance.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FFF808F2AC40E8F00B554C4 /* SOSFrance */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80902AC40E8F00B554C4 /* SOSFranceApp.swift */,
+				3FFF80A72AC4219900B554C4 /* Core */,
+				3FFF80942AC40E9000B554C4 /* Assets.xcassets */,
+				3FFF80962AC40E9000B554C4 /* Preview Content */,
+			);
+			path = SOSFrance;
+			sourceTree = "<group>";
+		};
+		3FFF80962AC40E9000B554C4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80972AC40E9000B554C4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3FFF80A22AC4203E00B554C4 /* SplashView */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80A32AC4204D00B554C4 /* SplashView.swift */,
+				3FFF80A52AC4205900B554C4 /* SplashViewModifier.swift */,
+			);
+			path = SplashView;
+			sourceTree = "<group>";
+		};
+		3FFF80A72AC4219900B554C4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80A22AC4203E00B554C4 /* SplashView */,
+				3FFF80A82AC421AD00B554C4 /* Screens */,
+				3FFF80922AC40E8F00B554C4 /* MainTabView.swift */,
+				3FFF80AE2AC43DD300B554C4 /* CallViewModifier.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3FFF80A82AC421AD00B554C4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80AB2AC426A800B554C4 /* Phrases */,
+				3FFF80A92AC421B300B554C4 /* Numbers */,
+				3FFF80AA2AC421CB00B554C4 /* Location */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3FFF80A92AC421B300B554C4 /* Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80C12AC559B800B554C4 /* ViewModel */,
+				3FFF80C02AC559AC00B554C4 /* Model */,
+				3FFF80BF2AC5599C00B554C4 /* Views */,
+			);
+			path = Numbers;
+			sourceTree = "<group>";
+		};
+		3FFF80AA2AC421CB00B554C4 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80B62AC47A2400B554C4 /* ViewModel */,
+				3FFF80B52AC47A1B00B554C4 /* Views */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		3FFF80AB2AC426A800B554C4 /* Phrases */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80AC2AC426BB00B554C4 /* PhrasesView.swift */,
+				3FFF80B02AC44AAF00B554C4 /* PhrasesViewModel.swift */,
+				3FFF80B22AC44DC300B554C4 /* HelpPhraseModel.swift */,
+			);
+			path = Phrases;
+			sourceTree = "<group>";
+		};
+		3FFF80B52AC47A1B00B554C4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80A02AC41F6D00B554C4 /* MapView.swift */,
+				3FFF80BB2AC4865500B554C4 /* LocationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3FFF80B62AC47A2400B554C4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80B72AC47A4C00B554C4 /* LocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3FFF80BF2AC5599C00B554C4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80BD2AC499D900B554C4 /* Num2View.swift */,
+				3FFF809E2AC41F6400B554C4 /* NumView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3FFF80C02AC559AC00B554C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3FFF80C12AC559B800B554C4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3FFF80C42AC55A8A00B554C4 /* NumbersViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3FFF808C2AC40E8F00B554C4 /* SOSFrance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FFF809B2AC40E9000B554C4 /* Build configuration list for PBXNativeTarget "SOSFrance" */;
+			buildPhases = (
+				3FFF80892AC40E8F00B554C4 /* Sources */,
+				3FFF808A2AC40E8F00B554C4 /* Frameworks */,
+				3FFF808B2AC40E8F00B554C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SOSFrance;
+			productName = SOSFrance;
+			productReference = 3FFF808D2AC40E8F00B554C4 /* SOSFrance.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FFF80852AC40E8F00B554C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					3FFF808C2AC40E8F00B554C4 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 3FFF80882AC40E8F00B554C4 /* Build configuration list for PBXProject "SOSFrance" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3FFF80842AC40E8F00B554C4;
+			productRefGroup = 3FFF808E2AC40E8F00B554C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FFF808C2AC40E8F00B554C4 /* SOSFrance */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3FFF808B2AC40E8F00B554C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FFF80982AC40E9000B554C4 /* Preview Assets.xcassets in Resources */,
+				3FFF80952AC40E9000B554C4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3FFF80892AC40E8F00B554C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FFF80932AC40E8F00B554C4 /* MainTabView.swift in Sources */,
+				3FFF80BE2AC499D900B554C4 /* Num2View.swift in Sources */,
+				3FFF80BC2AC4865500B554C4 /* LocationView.swift in Sources */,
+				3FFF80B32AC44DC300B554C4 /* HelpPhraseModel.swift in Sources */,
+				3FFF80AD2AC426BB00B554C4 /* PhrasesView.swift in Sources */,
+				3FFF80A12AC41F6D00B554C4 /* MapView.swift in Sources */,
+				3FFF80A42AC4204D00B554C4 /* SplashView.swift in Sources */,
+				3FFF80B82AC47A4C00B554C4 /* LocationViewModel.swift in Sources */,
+				3FFF80912AC40E8F00B554C4 /* SOSFranceApp.swift in Sources */,
+				3FFF80A62AC4205900B554C4 /* SplashViewModifier.swift in Sources */,
+				3FFF80B12AC44AAF00B554C4 /* PhrasesViewModel.swift in Sources */,
+				3FFF809F2AC41F6400B554C4 /* NumView.swift in Sources */,
+				3FFF80AF2AC43DD300B554C4 /* CallViewModifier.swift in Sources */,
+				3FFF80C52AC55A8A00B554C4 /* NumbersViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3FFF80992AC40E9000B554C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3FFF809A2AC40E9000B554C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FFF809C2AC40E9000B554C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SOSFrance/Preview Content\"";
+				DEVELOPMENT_TEAM = BV862H23C8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SOSFrance/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SOS: France";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andy.SOSFrance;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FFF809D2AC40E9000B554C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SOSFrance/Preview Content\"";
+				DEVELOPMENT_TEAM = BV862H23C8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SOSFrance/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SOS: France";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andy.SOSFrance;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FFF80882AC40E8F00B554C4 /* Build configuration list for PBXProject "SOSFrance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FFF80992AC40E9000B554C4 /* Debug */,
+				3FFF809A2AC40E9000B554C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FFF809B2AC40E9000B554C4 /* Build configuration list for PBXNativeTarget "SOSFrance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FFF809C2AC40E9000B554C4 /* Debug */,
+				3FFF809D2AC40E9000B554C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3FFF80852AC40E8F00B554C4 /* Project object */;
+}
