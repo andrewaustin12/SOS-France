@@ -19,7 +19,7 @@ struct PhrasesView: View {
                     .foregroundStyle(.white)
                    
                 Text("Phrases Utiles")
-                    .font(.title3)
+                    .font(.title)
                     .bold()
                     .foregroundStyle(.white)
                     .italic()
@@ -29,8 +29,11 @@ struct PhrasesView: View {
             List {
                 ForEach(viewModel.helpPhrases) { helpPhrase in
                     Section {
-                        Text(helpPhrase.phrase)
+                        Text(helpPhrase.phraseEnglish)
                             .font(.title3)
+                        Text(helpPhrase.phraseFrench)
+                            .italic()
+                            .bold()
                             
                     }.listSectionSpacing(5.0)
                         

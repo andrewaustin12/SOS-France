@@ -18,6 +18,7 @@ struct MainTabView: View {
                 }
                 .tabItem{
                     Image(systemName: "list.number")
+                    Text("Numbers")
                 }.tag(0)
             
             PhrasesView()
@@ -26,6 +27,7 @@ struct MainTabView: View {
                 }
                 .tabItem{
                     Image(systemName: "exclamationmark.bubble.fill")
+                    Text("Phrases")
                 }.tag(1)
             
             LocationView()
@@ -34,6 +36,7 @@ struct MainTabView: View {
                 }
                 .tabItem{
                     Image(systemName: "location.circle")
+                    Text("Location")
                 }.tag(2)
         }
         .splashViewModifier {

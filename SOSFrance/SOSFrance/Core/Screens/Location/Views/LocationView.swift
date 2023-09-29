@@ -16,14 +16,23 @@ struct LocationView: View {
             
             VStack {
                 Text("Your Location")
-                Text("24 Rue Saint Germaine" )
-                    .padding(.top)
+                    .font(.title2)
+                    .bold()
+                Text(viewModel.locationDescription)
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                    
             }
-            .frame(height: 100)
+            .frame(height: 120)
             
+        }
+        .onAppear {
+            // Check for location services and authorization
+            viewModel.checkIfLocationServicesIsEnabled()
         }
     }
 }
+
 
 #Preview {
     LocationView()

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Num2View: View {
+struct NumberCardView: View {
     let model: NumberCardModel
     
     var body: some View {
@@ -83,7 +83,7 @@ struct Num2View: View {
 }
 
 #Preview {
-    Num2View(model: NumberCardModel(icon: "cross.case", title: "SAMU", number: "15", description: "Urgence Medicale", phoneNumber: "15"))
+    NumberCardView(model: NumberCardModel(icon: "cross.case", title: "SAMU", number: "15", description: "Urgence Medicale", phoneNumber: "15"))
 }
 
 

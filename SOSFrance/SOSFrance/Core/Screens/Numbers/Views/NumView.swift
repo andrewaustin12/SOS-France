@@ -23,6 +23,12 @@ struct NumView: View {
                     .bold()
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
+                Text("Numéros D’urgence")
+                    .font(.title)
+                    .bold()
+                    .italic()
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
                     .padding(.bottom)
             }
             .background(.blue)
@@ -31,7 +37,7 @@ struct NumView: View {
             ScrollView{
                 LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(viewModel.numbersList, id: \.self.id) { number in
-                        Num2View(model: number)
+                        NumberCardView(model: number)
                             
                     }
                 }
