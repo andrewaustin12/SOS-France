@@ -9,6 +9,6 @@ import Foundation
 
 struct HelpPhraseModel: Identifiable {
     let id = UUID()
-    let phraseEnglish: String
-    let phraseFrench: String
+    var phraseEnglish: String
+    var phraseFrench: String
 }
