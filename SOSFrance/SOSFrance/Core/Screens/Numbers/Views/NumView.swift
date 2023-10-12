@@ -7,9 +7,14 @@
 
 import SwiftUI
 import UIKit
+import RevenueCat
+import RevenueCatUI
 
 struct NumView: View {
     private let viewModel = NumbersViewModel()
+    @State private var showAlert = false
+    @State private var alertTitle = ""
+    @State private var alertDescription = ""
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -45,7 +50,31 @@ struct NumView: View {
                 .padding(.horizontal)
             }
         }
-        
+        .alert(isPresented: $showAlert, content: {
+            Alert(title: Text(alertTitle), message: Text(alertDescription), dismissButton: .cancel())
+        })
+    }
+    
+    func Purchased() {
+        Purchases.shared.getOfferings { offereings, error in
+            if let packages = offereings?.current?.availablePackages {
+                Purchases.shared.purchase(package: packages.first!) { transaction, purchaserInfo, error, userCancelled in
+                    if error != nil {
+                        alertTitle = "PURCHASE FAILED"
+                        alertDescription = "Error: \(error!.localizedDescription)"
+                        showAlert.toggle()
+                    }
+                    if purchaserInfo?.entitlements["premium"]?.isActive == true {
+                        // success
+                        print("✅ Purchase Successfull!")
+                        
+                        alertTitle = "✅ Purchase Successfull!"
+                        alertDescription = "You can now use full features!"
+                        showAlert.toggle()
+                    }
+                }
+            }
+        }
     }
 }
 

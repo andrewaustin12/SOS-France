@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F08EE972AD29CD100A83347 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 3F08EE962AD29CD100A83347 /* RevenueCat */; };
+		3F08EE992AD29CD100A83347 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F08EE982AD29CD100A83347 /* RevenueCatUI */; };
+		3F08EE9C2AD2A25100A83347 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08EE9B2AD2A25100A83347 /* Secrets.swift */; };
+		3F08EE9F2AD2BC2D00A83347 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F08EE9E2AD2BC2D00A83347 /* StoreKit.framework */; };
 		3FFF80912AC40E8F00B554C4 /* SOSFranceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80902AC40E8F00B554C4 /* SOSFranceApp.swift */; };
 		3FFF80932AC40E8F00B554C4 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80922AC40E8F00B554C4 /* MainTabView.swift */; };
 		3FFF80952AC40E9000B554C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF80942AC40E9000B554C4 /* Assets.xcassets */; };
@@ -16,7 +20,6 @@
 		3FFF80A42AC4204D00B554C4 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80A32AC4204D00B554C4 /* SplashView.swift */; };
 		3FFF80A62AC4205900B554C4 /* SplashViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80A52AC4205900B554C4 /* SplashViewModifier.swift */; };
 		3FFF80AD2AC426BB00B554C4 /* PhrasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80AC2AC426BB00B554C4 /* PhrasesView.swift */; };
-		3FFF80AF2AC43DD300B554C4 /* CallViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80AE2AC43DD300B554C4 /* CallViewModifier.swift */; };
 		3FFF80B12AC44AAF00B554C4 /* PhrasesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80B02AC44AAF00B554C4 /* PhrasesViewModel.swift */; };
 		3FFF80B32AC44DC300B554C4 /* HelpPhraseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80B22AC44DC300B554C4 /* HelpPhraseModel.swift */; };
 		3FFF80B82AC47A4C00B554C4 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFF80B72AC47A4C00B554C4 /* LocationViewModel.swift */; };
@@ -27,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F08EE9B2AD2A25100A83347 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3F08EE9E2AD2BC2D00A83347 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3FFF808D2AC40E8F00B554C4 /* SOSFrance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOSFrance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFF80902AC40E8F00B554C4 /* SOSFranceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSFranceApp.swift; sourceTree = "<group>"; };
 		3FFF80922AC40E8F00B554C4 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -37,7 +42,6 @@
 		3FFF80A32AC4204D00B554C4 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		3FFF80A52AC4205900B554C4 /* SplashViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModifier.swift; sourceTree = "<group>"; };
 		3FFF80AC2AC426BB00B554C4 /* PhrasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesView.swift; sourceTree = "<group>"; };
-		3FFF80AE2AC43DD300B554C4 /* CallViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewModifier.swift; sourceTree = "<group>"; };
 		3FFF80B02AC44AAF00B554C4 /* PhrasesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesViewModel.swift; sourceTree = "<group>"; };
 		3FFF80B22AC44DC300B554C4 /* HelpPhraseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPhraseModel.swift; sourceTree = "<group>"; };
 		3FFF80B72AC47A4C00B554C4 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
@@ -52,17 +56,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F08EE9F2AD2BC2D00A83347 /* StoreKit.framework in Frameworks */,
+				3F08EE992AD29CD100A83347 /* RevenueCatUI in Frameworks */,
+				3F08EE972AD29CD100A83347 /* RevenueCat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F08EE9A2AD2A22900A83347 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3F08EE9B2AD2A25100A83347 /* Secrets.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3F08EE9D2AD2BC2D00A83347 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F08EE9E2AD2BC2D00A83347 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3FFF80842AC40E8F00B554C4 = {
 			isa = PBXGroup;
 			children = (
 				3FFF808F2AC40E8F00B554C4 /* SOSFrance */,
 				3FFF808E2AC40E8F00B554C4 /* Products */,
+				3F08EE9D2AD2BC2D00A83347 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +101,7 @@
 		3FFF808F2AC40E8F00B554C4 /* SOSFrance */ = {
 			isa = PBXGroup;
 			children = (
+				3F08EE9A2AD2A22900A83347 /* Utils */,
 				3FFF80902AC40E8F00B554C4 /* SOSFranceApp.swift */,
 				3FFF80A72AC4219900B554C4 /* Core */,
 				3FFF80942AC40E9000B554C4 /* Assets.xcassets */,
@@ -108,7 +133,6 @@
 				3FFF80A22AC4203E00B554C4 /* SplashView */,
 				3FFF80A82AC421AD00B554C4 /* Screens */,
 				3FFF80922AC40E8F00B554C4 /* MainTabView.swift */,
-				3FFF80AE2AC43DD300B554C4 /* CallViewModifier.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -210,6 +234,10 @@
 			dependencies = (
 			);
 			name = SOSFrance;
+			packageProductDependencies = (
+				3F08EE962AD29CD100A83347 /* RevenueCat */,
+				3F08EE982AD29CD100A83347 /* RevenueCatUI */,
+			);
 			productName = SOSFrance;
 			productReference = 3FFF808D2AC40E8F00B554C4 /* SOSFrance.app */;
 			productType = "com.apple.product-type.application";
@@ -238,6 +266,9 @@
 				Base,
 			);
 			mainGroup = 3FFF80842AC40E8F00B554C4;
+			packageReferences = (
+				3F08EE952AD29CD100A83347 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+			);
 			productRefGroup = 3FFF808E2AC40E8F00B554C4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -265,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FFF80D82AC9455300B554C4 /* PhrasesCardView.swift in Sources */,
+				3F08EE9C2AD2A25100A83347 /* Secrets.swift in Sources */,
 				3FFF80932AC40E8F00B554C4 /* MainTabView.swift in Sources */,
 				3FFF80BE2AC499D900B554C4 /* NumberCardView.swift in Sources */,
 				3FFF80BC2AC4865500B554C4 /* LocationView.swift in Sources */,
@@ -277,7 +309,6 @@
 				3FFF80A62AC4205900B554C4 /* SplashViewModifier.swift in Sources */,
 				3FFF80B12AC44AAF00B554C4 /* PhrasesViewModel.swift in Sources */,
 				3FFF809F2AC41F6400B554C4 /* NumView.swift in Sources */,
-				3FFF80AF2AC43DD300B554C4 /* CallViewModifier.swift in Sources */,
 				3FFF80C52AC55A8A00B554C4 /* NumbersViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,7 +460,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.andy.SOSFrance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -463,7 +494,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.andy.SOSFrance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -494,6 +525,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F08EE952AD29CD100A83347 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F08EE962AD29CD100A83347 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F08EE952AD29CD100A83347 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		3F08EE982AD29CD100A83347 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F08EE952AD29CD100A83347 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3FFF80852AC40E8F00B554C4 /* Project object */;
 }
