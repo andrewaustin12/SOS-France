@@ -6,23 +6,16 @@
 //
 
 import SwiftUI
+import RevenueCat
+import RevenueCatUI
 
 struct PhrasesView: View {
     @ObservedObject var viewModel = PhrasesViewModel()
     @State private var searchTerm = ""
     @State private var selectedPhrase: HelpPhraseModel?
     @State private var isShowingCardView = false
+    @State private var isPurchased = false
     
-    var filteredPhrases: [HelpPhraseModel] {
-        if searchTerm.isEmpty {
-            return viewModel.helpPhrases
-        } else {
-            return viewModel.helpPhrases.filter { helpPhrase in
-                helpPhrase.phraseEnglish.localizedCaseInsensitiveContains(searchTerm) ||
-                helpPhrase.phraseFrench.localizedCaseInsensitiveContains(searchTerm)
-            }
-        }
-    }
     
     var body: some View {
         NavigationStack {
@@ -43,6 +36,8 @@ struct PhrasesView: View {
                         }
                     }
                 }
+                .blur(radius: isPurchased ? 0 : 10)
+                .presentPaywallIfNeeded(requiredEntitlementIdentifier: "premium")
                 .searchable(text: $searchTerm)
                 .navigationTitle("Helpful Phrases")
                 .disabled(isShowingCardView ? true : false )
@@ -52,13 +47,39 @@ struct PhrasesView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color.black.opacity(0.3).ignoresSafeArea())
                 }
+                
+                
+            }
+            .onAppear {
+                checkPurchaseStatus()
             }
             
         }
     }
+    
+    var filteredPhrases: [HelpPhraseModel] {
+        if searchTerm.isEmpty {
+            return viewModel.helpPhrases
+        } else {
+            return viewModel.helpPhrases.filter { helpPhrase in
+                helpPhrase.phraseEnglish.localizedCaseInsensitiveContains(searchTerm) ||
+                helpPhrase.phraseFrench.localizedCaseInsensitiveContains(searchTerm)
+            }
+        }
+    }
+    
+    func checkPurchaseStatus() {
+        Purchases.shared.getCustomerInfo { customerInfo, error in
+            if let info = customerInfo {
+                if info.entitlements["premium"]?.isActive == true {
+                    // we are subscribed
+                    print("Purchase activce")
+                    isPurchased = true
+                }
+            }
+        }
+    }
 }
-
-
 
 #Preview {
     PhrasesView()
