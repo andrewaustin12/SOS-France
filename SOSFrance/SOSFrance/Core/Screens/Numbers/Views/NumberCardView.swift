@@ -1,89 +1,60 @@
-//
-//  Num2View.swift
-//  SOSFrance
-//
-//  Created by andrew austin on 9/27/23.
-//
-
 import SwiftUI
 
 struct NumberCardView: View {
     let model: NumberCardModel
-    
-    var body: some View {
-        VStack{
-            Text(model.title)
-                .font(.title)
-                .bold()
-                .foregroundStyle(.white)
-                .padding(.top)
-                .fixedSize(horizontal: false, vertical: true)
+    @Binding var isFrench: Bool  // Binding to track language preference
 
-            ZStack{
-                Circle()
-                    .fill(.cardFont)
-                    .frame(width: 100, height: 60)
-                Image(systemName: model.icon)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40, height: 40)
-                    .foregroundStyle(.iconFill)
-                
-            }
-            
+    var body: some View {
+        VStack(spacing: 16) {
             HStack {
-                Image(systemName: "phone.fill")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                    .foregroundStyle(.phoneFill)
-                Text(model.number)
-                    .font(.title)
-                    .foregroundStyle(.cardFont)
-                    .bold()
-            }
-            
-            Text(model.description)
-                .font(.headline)
-                .foregroundStyle(.white)
-                .bold()
-                .padding(.bottom)
-                .padding(.leading)
-                .padding(.trailing)
-                .fixedSize(horizontal: false, vertical: true)
-        }
-        .clipShape(.rect())
-        .frame(width: 170, height: 300)
-        .background(.cardBackground)
-        .cornerRadius(20)
-        .overlay(RoundedRectangle(cornerRadius: 20)
-            .stroke(.gray, lineWidth: 2)
-        )
-        .onTapGesture {
-            callPhoneNumber(phoneNumber: model.phoneNumber)
-        }
-            
-    }
-    
-    func callPhoneNumber(phoneNumber: String) {
-        let phoneURL = URL(string: "tel:\(phoneNumber)")!
-        
-        if UIApplication.shared.canOpenURL(phoneURL) {
-            
-            UIApplication.shared.open(phoneURL, options: [:]) { success in
-                if success {
-                    print("The phone app was opened")
-                } else {
-                    print("The phone app could not be opened")
+                Circle()
+                    .fill(Color("cardFont"))
+                    .frame(width: 60, height: 60)
+                    .overlay(
+                        Image(systemName: model.icon)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(Color("iconFill"))
+                    )
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(isFrench ? model.titleFrench : model.title)
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(.white)
+                    
+                    HStack {
+                        Image(systemName: "phone.fill")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(Color("phoneFill"))
+                        Text(model.number)
+                            .font(.title2)
+                            .foregroundColor(Color("cardFont"))
+                            .bold()
+                    }
+                    
+                    Text(isFrench ? model.descriptionFrench : model.description)
+                        .font(.subheadline)
+                        .foregroundColor(.white)
                 }
+                Spacer()
             }
-        } else {
-            print("The device cannot make phone calls")
+            .padding()
+            .background(Color("cardBackground"))
+            .cornerRadius(15)
+            .shadow(radius: 5)
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+            )
         }
+        .padding(.horizontal)
+        .frame(maxWidth: .infinity)
     }
 }
 
 #Preview {
-    NumberCardView(model: NumberCardModel(icon: "cross.case", title: "SAMU", number: "15", description: "Urgence Medicale", phoneNumber: "15"))
+    NumberCardView(model: NumberCardModel(icon: "cross.case.fill", title: "SAMU", titleFrench: "SAMU", number: "15", description: "Medical Emergency", descriptionFrench: "Urgence Medicale", phoneNumber: "15"), isFrench: .constant(false))
 }
-
-

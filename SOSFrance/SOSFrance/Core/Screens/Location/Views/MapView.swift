@@ -1,25 +1,28 @@
-//
-//  MapView.swift
-//  SOSFrance
-//
-//  Created by andrew austin on 9/27/23.
-//
-
 import SwiftUI
 import MapKit
 
 struct MapView: View {
     @StateObject private var viewModel = LocationViewModel()
+    @State private var position: MapCameraPosition = .automatic
 
     var body: some View {
-        Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
-            .ignoresSafeArea()
-            .accentColor(.pink)
-            .onAppear {
-                viewModel.checkIfLocationServicesIsEnabled()
-            }
+        Map(position: $position) {
+            UserAnnotation()
+        }
+        .mapControls {
+            MapUserLocationButton()
+            MapPitchToggle()
+        }
+        .onAppear {
+            viewModel.checkIfLocationServicesIsEnabled()
+            // Update the position based on the initial region
+            position = .region(viewModel.region)
+        }
+        .onChange(of: viewModel.region) { newRegion in
+            // Update the position whenever the region changes
+            position = .region(newRegion)
+        }
     }
-    
 }
 
 #Preview {

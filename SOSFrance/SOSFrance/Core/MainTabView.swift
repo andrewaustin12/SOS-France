@@ -38,6 +38,14 @@ struct MainTabView: View {
                     Image(systemName: "location.circle")
                     Text("Location")
                 }.tag(2)
+            EmergencyProfileView()
+                .onAppear{
+                    selectedIndex = 3
+                }
+                .tabItem{
+                    Image(systemName: "person.fill")
+                    Text("Profile")
+                }.tag(3)
         }
         .splashViewModifier {
           ZStack {
@@ -49,4 +57,5 @@ struct MainTabView: View {
 
 #Preview {
     MainTabView()
+        .environmentObject(SubscriptionManager.shared)
 }
