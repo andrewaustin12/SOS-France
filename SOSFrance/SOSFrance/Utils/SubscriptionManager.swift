@@ -60,7 +60,7 @@ class SubscriptionManager: NSObject, ObservableObject {
             if let entitlements = info?.entitlements, entitlements.all["premium"]?.isActive == true {
                 self.isPremium = true
             } else {
-                self.isPremium = false
+                self.isPremium = true // change for testing default is false
             }
         }
     }

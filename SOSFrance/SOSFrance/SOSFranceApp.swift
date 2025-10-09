@@ -15,7 +15,7 @@ struct SOSFranceApp: App {
     let container: ModelContainer
     
     init() {
-        Purchases.logLevel = .debug
+        Purchases.logLevel = .info
         Purchases.configure(withAPIKey: Secrets.apiKey)
         
         let schema = Schema([EmergencyProfile.self])

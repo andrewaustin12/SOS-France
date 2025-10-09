@@ -9,140 +9,306 @@ struct EmergencyProfileView: View {
     @EnvironmentObject var subscriptionManager: SubscriptionManager
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @State private var showPaywall = false
     
     @State private var isEditing = false
-    @State private var name: String = "Your Name"
-    @State private var bloodType: String = "Your Blood Type"
-    @State private var allergies: String = "Your Allergies"
-    @State private var emergencyContactName: String = "Contact Name"
-    @State private var emergencyContactNumber: String = "Contact Number"
-    @State private var insuranceCompany: String = "Your Insurance Company"
-    @State private var policyNumber: String = "Your Policy Number"
-    @State private var contactEmail: String = "Your Contact Email"
-    @State private var contactTelephone: String = "Your Contact Telephone"
-    @State private var medicalHistory: String = "Your Medical History"
-    @State private var currentMedications: String = "Your Current Medications"
-    @State private var primaryPhysicianContact: String = "Your Primary Physician Contact"
-    @State private var specialInstructions: String = "Your Special Instructions"
+    @State private var name: String = ""
+    @State private var bloodType: String = ""
+    @State private var allergies: String = ""
+    @State private var emergencyContactName: String = ""
+    @State private var emergencyContactNumber: String = ""
+    @State private var insuranceCompany: String = ""
+    @State private var policyNumber: String = ""
+    @State private var contactEmail: String = ""
+    @State private var contactTelephone: String = ""
+    @State private var medicalHistory: String = ""
+    @State private var currentMedications: String = ""
+    @State private var primaryPhysicianContact: String = ""
+    @State private var specialInstructions: String = ""
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 20) {
-                    IDCardView(
-                        profile: profiles.first ?? EmergencyProfile(
-                            name: name,
-                            bloodType: bloodType,
-                            allergies: allergies,
-                            emergencyContactName: emergencyContactName,
-                            emergencyContactNumber: emergencyContactNumber,
-                            insuranceCompany: insuranceCompany,
-                            policyNumber: policyNumber,
-                            contactEmail: contactEmail,
-                            contactTelephone: contactTelephone,
-                            medicalHistory: medicalHistory,
-                            currentMedications: currentMedications,
-                            primaryPhysicianContact: primaryPhysicianContact,
-                            specialInstructions: specialInstructions
-                        ),
-                        isEditing: $isEditing,
-                        name: $name,
-                        bloodType: $bloodType,
-                        allergies: $allergies,
-                        emergencyContactName: $emergencyContactName,
-                        emergencyContactNumber: $emergencyContactNumber,
-                        insuranceCompany: $insuranceCompany,
-                        policyNumber: $policyNumber,
-                        contactEmail: $contactEmail,
-                        contactTelephone: $contactTelephone,
-                        medicalHistory: $medicalHistory,
-                        currentMedications: $currentMedications,
-                        primaryPhysicianContact: $primaryPhysicianContact,
-                        specialInstructions: $specialInstructions
-                    )
+        if #available(iOS 26.0, *) {
+            NavigationStack {
+                List {
+                    // Personal Information Section
+                    Section {
+                        ProfileRow(title: "Full Name", value: $name, isEditing: $isEditing)
+                        BloodTypePickerRow(title: "Blood Type", value: $bloodType, isEditing: $isEditing)
+                        ProfileRow(title: "Allergies", value: $allergies, isEditing: $isEditing, isMultiline: true)
+                    } header: {
+                        Label("Personal Information", systemImage: "person.crop.circle.fill")
+                        
+                    }
+                    
+                    // Emergency Contacts Section
+                    Section {
+                        ProfileRow(title: "Emergency Contact Name", value: $emergencyContactName, isEditing: $isEditing)
+                        ProfileRow(title: "Emergency Contact Number", value: $emergencyContactNumber, isEditing: $isEditing, keyboardType: .phonePad)
+                        ProfileRow(title: "Primary Physician Contact", value: $primaryPhysicianContact, isEditing: $isEditing)
+                    } header: {
+                        Label("Emergency Contacts", systemImage: "phone.circle.fill")
+                        
+                    }
+                    
+                    // Medical Information Section
+                    Section {
+                        ProfileRow(title: "Medical History", value: $medicalHistory, isEditing: $isEditing, isMultiline: true)
+                        ProfileRow(title: "Current Medications", value: $currentMedications, isEditing: $isEditing, isMultiline: true)
+                        ProfileRow(title: "Special Instructions", value: $specialInstructions, isEditing: $isEditing, isMultiline: true)
+                    } header: {
+                        Label("Medical Information", systemImage: "cross.circle.fill")
+                        
+                    }
+                    
+                    // Insurance Information Section
+                    Section {
+                        ProfileRow(title: "Insurance Company", value: $insuranceCompany, isEditing: $isEditing)
+                        ProfileRow(title: "Policy Number", value: $policyNumber, isEditing: $isEditing)
+                    } header: {
+                        Label("Insurance Information", systemImage: "shield")
+                    }
+                    
+                    // Contact Information Section
+                    Section {
+                        ProfileRow(title: "Email", value: $contactEmail, isEditing: $isEditing, keyboardType: .emailAddress)
+                        ProfileRow(title: "Telephone", value: $contactTelephone, isEditing: $isEditing, keyboardType: .phonePad)
+                    } header: {
+                        Label("Contact Information", systemImage: "envelope.circle.fill")
+                        
+                    }
                 }
-                .padding()
-            }
-            .blur(radius: subscriptionManager.isPremium ? 0 : 10)
-            .presentPaywallIfNeeded(requiredEntitlementIdentifier: "premium")
-            .navigationTitle("Emergency Profile")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    if isEditing {
-                        Button(action: {
-                            saveProfile()
-                            isEditing.toggle()
-                        }) {
-                            Text("Save")
+                .blur(radius: subscriptionManager.isPremium ? 0 : 10)
+                .presentPaywallIfNeeded(requiredEntitlementIdentifier: "premium")
+                .listStyle(.insetGrouped)
+                .navigationTitle("Emergency Profile")
+                .toolbar {
+                    if !subscriptionManager.isPremium {
+                        ToolbarItem(placement: .primaryAction){
+                            Button(action: {
+                                showPaywall.toggle()
+                            }) {
+                                Image(systemName: "crown.fill")
+                                    .foregroundStyle(Color(.yellow))
+                                    .fontWeight(.semibold)
+                            }
                         }
-                    } else {
-                        Menu {
+                        ToolbarSpacer(.fixed, placement: .primaryAction)
+                    }
+                    
+                    ToolbarItem(placement: .primaryAction) {
+                        if isEditing {
                             Button(action: {
-                                if subscriptionManager.isPremium {
-                                    isEditing.toggle()
-                                } else {
-                                    alertMessage = "Editing profiles is for premium members only."
-                                    showAlert = true
-                                }
+                                saveProfile()
+                                isEditing.toggle()
                             }) {
-                                Text("Edit")
+                                Text("Save")
+                                    .fontWeight(.semibold)
                             }
-                            Button(action: {
-                                if subscriptionManager.isPremium {
-                                    shareProfile()
-                                } else {
-                                    alertMessage = "Sharing profiles is for premium members only."
-                                    showAlert = true
+                        } else {
+                            Menu {
+                                Button(action: {
+                                    if subscriptionManager.isPremium {
+                                        isEditing.toggle()
+                                    } else {
+                                        alertMessage = "Editing profiles is for premium members only."
+                                        showAlert = true
+                                    }
+                                }) {
+                                    Label("Edit Profile", systemImage: "pencil")
                                 }
-                            }) {
-                                Label("Share", systemImage: "square.and.arrow.up")
+                                Button(action: {
+                                    if subscriptionManager.isPremium {
+                                        shareProfile()
+                                    } else {
+                                        alertMessage = "Sharing profiles is for premium members only."
+                                        showAlert = true
+                                    }
+                                }) {
+                                    Label("Share Profile", systemImage: "square.and.arrow.up")
+                                }
+                            } label: {
+                                Image(systemName: "ellipsis.circle")
+                                    .font(.title2)
                             }
-                        } label: {
-                            Label("Options", systemImage: "ellipsis.circle")
                         }
                     }
                 }
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Premium Feature"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                }
+                .sheet(isPresented: $showPaywall) {
+                    PaywallView()
+                }
             }
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Premium Feature"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            .onAppear {
+                if let profile = profiles.first {
+                    name = profile.name
+                    bloodType = profile.bloodType
+                    allergies = profile.allergies
+                    emergencyContactName = profile.emergencyContactName
+                    emergencyContactNumber = profile.emergencyContactNumber
+                    insuranceCompany = profile.insuranceCompany
+                    policyNumber = profile.policyNumber
+                    contactEmail = profile.contactEmail
+                    contactTelephone = profile.contactTelephone
+                    medicalHistory = profile.medicalHistory
+                    currentMedications = profile.currentMedications
+                    primaryPhysicianContact = profile.primaryPhysicianContact
+                    specialInstructions = profile.specialInstructions
+                }
+                
+                subscriptionManager.restorePurchases()
             }
-        }
-        .onAppear {
-            if let profile = profiles.first {
-                name = profile.name
-                bloodType = profile.bloodType
-                allergies = profile.allergies
-                emergencyContactName = profile.emergencyContactName
-                emergencyContactNumber = profile.emergencyContactNumber
-                insuranceCompany = profile.insuranceCompany
-                policyNumber = profile.policyNumber
-                contactEmail = profile.contactEmail
-                contactTelephone = profile.contactTelephone
-                medicalHistory = profile.medicalHistory
-                currentMedications = profile.currentMedications
-                primaryPhysicianContact = profile.primaryPhysicianContact
-                specialInstructions = profile.specialInstructions
+        } else {
+            NavigationStack {
+                List {
+                    // Personal Information Section
+                    Section {
+                        ProfileRow(title: "Full Name", value: $name, isEditing: $isEditing)
+                        BloodTypePickerRow(title: "Blood Type", value: $bloodType, isEditing: $isEditing)
+                        ProfileRow(title: "Allergies", value: $allergies, isEditing: $isEditing, isMultiline: true)
+                    } header: {
+                        Label("Personal Information", systemImage: "person.crop.circle.fill")
+                        
+                    }
+                    
+                    // Emergency Contacts Section
+                    Section {
+                        ProfileRow(title: "Emergency Contact Name", value: $emergencyContactName, isEditing: $isEditing)
+                        ProfileRow(title: "Emergency Contact Number", value: $emergencyContactNumber, isEditing: $isEditing, keyboardType: .phonePad)
+                        ProfileRow(title: "Primary Physician Contact", value: $primaryPhysicianContact, isEditing: $isEditing)
+                    } header: {
+                        Label("Emergency Contacts", systemImage: "phone.circle.fill")
+                        
+                    }
+                    
+                    // Medical Information Section
+                    Section {
+                        ProfileRow(title: "Medical History", value: $medicalHistory, isEditing: $isEditing, isMultiline: true)
+                        ProfileRow(title: "Current Medications", value: $currentMedications, isEditing: $isEditing, isMultiline: true)
+                        ProfileRow(title: "Special Instructions", value: $specialInstructions, isEditing: $isEditing, isMultiline: true)
+                    } header: {
+                        Label("Medical Information", systemImage: "cross.circle.fill")
+                        
+                    }
+                    
+                    // Insurance Information Section
+                    Section {
+                        ProfileRow(title: "Insurance Company", value: $insuranceCompany, isEditing: $isEditing)
+                        ProfileRow(title: "Policy Number", value: $policyNumber, isEditing: $isEditing)
+                    } header: {
+                        Label("Insurance Information", systemImage: "shield")
+                    }
+                    
+                    // Contact Information Section
+                    Section {
+                        ProfileRow(title: "Email", value: $contactEmail, isEditing: $isEditing, keyboardType: .emailAddress)
+                        ProfileRow(title: "Telephone", value: $contactTelephone, isEditing: $isEditing, keyboardType: .phonePad)
+                    } header: {
+                        Label("Contact Information", systemImage: "envelope.circle.fill")
+                        
+                    }
+                }
+                .blur(radius: subscriptionManager.isPremium ? 0 : 10)
+                .presentPaywallIfNeeded(requiredEntitlementIdentifier: "premium")
+                .listStyle(.insetGrouped)
+                .navigationTitle("Emergency Profile")
+                .toolbar {
+                    if !subscriptionManager.isPremium {
+                        ToolbarItem(placement: .navigationBarTrailing){
+                            Button(action: {
+                                showPaywall.toggle()
+                            }) {
+                                Image(systemName: "crown.fill")
+                                    .fontWeight(.semibold)
+                            }
+                        }
+                        
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        if isEditing {
+                            Button(action: {
+                                saveProfile()
+                                isEditing.toggle()
+                            }) {
+                                Text("Save")
+                                    .fontWeight(.semibold)
+                            }
+                        } else {
+                            Menu {
+                                Button(action: {
+                                    if subscriptionManager.isPremium {
+                                        isEditing.toggle()
+                                    } else {
+                                        alertMessage = "Editing profiles is for premium members only."
+                                        showAlert = true
+                                    }
+                                }) {
+                                    Label("Edit Profile", systemImage: "pencil")
+                                }
+                                Button(action: {
+                                    if subscriptionManager.isPremium {
+                                        shareProfile()
+                                    } else {
+                                        alertMessage = "Sharing profiles is for premium members only."
+                                        showAlert = true
+                                    }
+                                }) {
+                                    Label("Share Profile", systemImage: "square.and.arrow.up")
+                                }
+                            } label: {
+                                Image(systemName: "ellipsis.circle")
+                                    .font(.title2)
+                            }
+                        }
+                    }
+                }
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Premium Feature"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                }
+                .sheet(isPresented: $showPaywall) {
+                    PaywallView()
+                }
             }
-
-            subscriptionManager.restorePurchases()
+            
+            .onAppear {
+                if let profile = profiles.first {
+                    name = profile.name
+                    bloodType = profile.bloodType
+                    allergies = profile.allergies
+                    emergencyContactName = profile.emergencyContactName
+                    emergencyContactNumber = profile.emergencyContactNumber
+                    insuranceCompany = profile.insuranceCompany
+                    policyNumber = profile.policyNumber
+                    contactEmail = profile.contactEmail
+                    contactTelephone = profile.contactTelephone
+                    medicalHistory = profile.medicalHistory
+                    currentMedications = profile.currentMedications
+                    primaryPhysicianContact = profile.primaryPhysicianContact
+                    specialInstructions = profile.specialInstructions
+                }
+                
+                subscriptionManager.restorePurchases()
+            }
         }
     }
     
     private func saveProfile() {
         let profile = profiles.first ?? EmergencyProfile(
-            name: name,
-            bloodType: bloodType,
-            allergies: allergies,
-            emergencyContactName: emergencyContactName,
-            emergencyContactNumber: emergencyContactNumber,
-            insuranceCompany: insuranceCompany,
-            policyNumber: policyNumber,
-            contactEmail: contactEmail,
-            contactTelephone: contactTelephone,
-            medicalHistory: medicalHistory,
-            currentMedications: currentMedications,
-            primaryPhysicianContact: primaryPhysicianContact,
-            specialInstructions: specialInstructions
+            name: "",
+            bloodType: "",
+            allergies: "",
+            emergencyContactName: "",
+            emergencyContactNumber: "",
+            insuranceCompany: "",
+            policyNumber: "",
+            contactEmail: "",
+            contactTelephone: "",
+            medicalHistory: "",
+            currentMedications: "",
+            primaryPhysicianContact: "",
+            specialInstructions: ""
         )
         
         profile.name = name
@@ -195,72 +361,7 @@ struct EmergencyProfileView: View {
     }
 }
 
-struct IDCardView: View {
-    let profile: EmergencyProfile
-    @Binding var isEditing: Bool
-    @Binding var name: String
-    @Binding var bloodType: String
-    @Binding var allergies: String
-    @Binding var emergencyContactName: String
-    @Binding var emergencyContactNumber: String
-    @Binding var insuranceCompany: String
-    @Binding var policyNumber: String
-    @Binding var contactEmail: String
-    @Binding var contactTelephone: String
-    @Binding var medicalHistory: String
-    @Binding var currentMedications: String
-    @Binding var primaryPhysicianContact: String
-    @Binding var specialInstructions: String
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            GroupBox(label: Label("Profile Information", systemImage: "person.crop.circle").font(.title2)) {
-                VStack(alignment: .leading, spacing: 10) {
-                    ProfileRow(title: "Name", value: $name, isEditing: $isEditing)
-                    ProfileRow(title: "Blood Type", value: $bloodType, isEditing: $isEditing)
-                    ProfileRow(title: "Allergies", value: $allergies, isEditing: $isEditing)
-                    ProfileRow(title: "Emergency Contact Name", value: $emergencyContactName, isEditing: $isEditing)
-                    ProfileRow(title: "Emergency Contact Number", value: $emergencyContactNumber, isEditing: $isEditing)
-                    ProfileRow(title: "Insurance Company", value: $insuranceCompany, isEditing: $isEditing)
-                    ProfileRow(title: "Policy Number", value: $policyNumber, isEditing: $isEditing)
-                    ProfileRow(title: "Contact Email", value: $contactEmail, isEditing: $isEditing)
-                    ProfileRow(title: "Contact Telephone", value: $contactTelephone, isEditing: $isEditing)
-                    ProfileRow(title: "Medical History", value: $medicalHistory, isEditing: $isEditing)
-                    ProfileRow(title: "Current Medications", value: $currentMedications, isEditing: $isEditing)
-                    ProfileRow(title: "Primary Physician Contact", value: $primaryPhysicianContact, isEditing: $isEditing)
-                    ProfileRow(title: "Special Instructions", value: $specialInstructions, isEditing: $isEditing)
-                }
-                .padding(.top, 5)
-                .font(.system(size: 18))
-            }
-        }
-        
-    }
-}
 
-struct ProfileRow: View {
-    let title: String
-    @Binding var value: String
-    @Binding var isEditing: Bool
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("\(title):").bold()
-            if isEditing {
-                TextEditor(text: $value)
-                    .frame(minHeight: 44)  // Adjust the min height as needed
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.gray.opacity(0.5))
-                    )
-            } else {
-                Text(value)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}
 
 struct EmergencyProfileView_Previews: PreviewProvider {
     static var previews: some View {
