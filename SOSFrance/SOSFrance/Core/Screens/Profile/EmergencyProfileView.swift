@@ -63,6 +63,7 @@ struct EmergencyProfileView: View {
                 }
                 .padding()
             }
+            .blur(radius: subscriptionManager.isPremium ? 0 : 10)
             .presentPaywallIfNeeded(requiredEntitlementIdentifier: "premium")
             .navigationTitle("Emergency Profile")
             .toolbar {
