@@ -13,40 +13,75 @@ struct PhrasesCardView: View {
     @Binding var isShowingDetailView: Bool
     
     var body: some View {
-        VStack {
+        if #available(iOS 26.0, *) {
             VStack {
-                Text(phrase.phraseEnglish)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .padding()
-                
-                Text(phrase.phraseFrench)
-                    .multilineTextAlignment(.center)
-                    .font(.title2)
-                    .italic()
-                    .padding()
+                VStack {
+                    Text(phrase.phraseEnglish)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .padding()
                     
+                    Text(phrase.phraseFrench)
+                        .multilineTextAlignment(.center)
+                        .font(.title2)
+                        .italic()
+                        .padding()
+                    
+                }
             }
-        }
-        .frame(width: 300, height: 550)
-        .background(Color(.systemBackground))
-        .cornerRadius(12)
-        .shadow(radius: 40)
-        .overlay(Button {
-            isShowingDetailView = false
-        } label: {
-            ZStack {
-                Circle()
-                    .frame(width: 30, height: 30)
-                    .foregroundStyle(.white)
-                    .opacity(0.6)
-                
+            .frame(width: 300, height: 550)
+            .glassEffect(.regular.tint(.white), in: .rect(cornerRadius: 20))
+//            .background(Color(.systemBackground))
+//            .cornerRadius(12)
+            .shadow(radius: 40)
+            .overlay(Button {
+                isShowingDetailView = false
+            } label: {
                 Image(systemName: "xmark")
                     .imageScale(.small)
                     .frame(width: 44, height: 44)
                     .foregroundStyle(.black)
+                
+            }, alignment: .topTrailing).glassEffect(.regular.interactive())
+            
+
+            
+        } else {
+            VStack {
+                VStack {
+                    Text(phrase.phraseEnglish)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .padding()
+                    
+                    Text(phrase.phraseFrench)
+                        .multilineTextAlignment(.center)
+                        .font(.title2)
+                        .italic()
+                        .padding()
+                    
+                }
             }
-        }, alignment: .topTrailing)
+            .frame(width: 300, height: 550)
+            .background(Color(.systemBackground))
+            .cornerRadius(12)
+            .shadow(radius: 40)
+            .overlay(Button {
+                isShowingDetailView = false
+            } label: {
+                ZStack {
+                    Circle()
+                        .frame(width: 30, height: 30)
+                        .foregroundStyle(.white)
+                        .opacity(0.6)
+                    
+                    Image(systemName: "xmark")
+                        .imageScale(.small)
+                        .frame(width: 44, height: 44)
+                        .foregroundStyle(.black)
+                }
+            }, alignment: .topTrailing)
+        }
     }
 }
 
