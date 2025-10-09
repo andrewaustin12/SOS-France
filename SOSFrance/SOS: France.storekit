@@ -1,0 +1,72 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "F6735284",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6468924165",
+      "localizations" : [
+        {
+          "description" : "To unlock the full features of the app",
+          "displayName" : "Lifetime Purchase",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Lifetime_purchase",
+      "referenceName" : "Lifetime purchase $0.99",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6468924404",
+      "localizations" : [
+        {
+          "description" : "To unlock full features of the app",
+          "displayName" : "Lifetime Purchase",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "SOS_onetime_0.99",
+      "referenceName" : "One time purchase $0.99",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6468307505",
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_developerTeamID" : "BV862H23C8",
+    "_disableDialogs" : false,
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 781700710.64571404,
+    "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ],
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

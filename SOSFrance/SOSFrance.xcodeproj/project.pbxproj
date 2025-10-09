@@ -40,6 +40,7 @@
 		3F0BD4DA2C14A7B600ADA740 /* EmergencyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyProfileView.swift; sourceTree = "<group>"; };
 		3F0BD4DC2C14C8BD00ADA740 /* NumbersCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersCard.swift; sourceTree = "<group>"; };
 		3F0BD4DE2C14CAFE00ADA740 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		3F84A7A12E9E7D9400FCAB10 /* SOS: France.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "SOS: France.storekit"; sourceTree = "<group>"; };
 		3FFF808D2AC40E8F00B554C4 /* SOSFrance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOSFrance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFF80902AC40E8F00B554C4 /* SOSFranceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSFranceApp.swift; sourceTree = "<group>"; };
 		3FFF80922AC40E8F00B554C4 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		3FFF80842AC40E8F00B554C4 = {
 			isa = PBXGroup;
 			children = (
+				3F84A7A12E9E7D9400FCAB10 /* SOS: France.storekit */,
 				3FFF808F2AC40E8F00B554C4 /* SOSFrance */,
 				3FFF808E2AC40E8F00B554C4 /* Products */,
 				3F08EE9D2AD2BC2D00A83347 /* Frameworks */,
@@ -574,7 +576,7 @@
 			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
+				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
